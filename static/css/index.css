@@ -1,0 +1,208 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #F5F5DC; 
+}
+
+header {
+    background-color: #8C4525;
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    padding: 1.25rem; 
+}
+
+.icone {
+    width: 5rem;         
+    height: auto;
+    vertical-align: middle;
+    margin-right: 0.625rem; 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 2rem; 
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem; 
+}
+
+.rightSidebar {
+    background-color: #F5F5DC; 
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    align-items: stretch; 
+}
+
+.leftSidebar, .rightSidebar {
+    width: 100%;
+}
+
+.leftSidebar {
+    background-color: #F5F5DC;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.leftSidebar h2 {
+    font-size: 1.125rem; 
+    color: #8C4525;
+    margin-bottom: 1rem;
+}
+
+.leftSidebar p {
+    font-size: 1rem; 
+    color: #555;
+    line-height: 1.6;
+}
+
+.feed {
+    flex-grow: 1;
+}
+
+.resenha {
+    border: 1px solid #ccc;
+    border-radius: 0.625rem;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.25rem; 
+}
+
+button {
+    width: 100%;
+    padding: 1rem; 
+    font-size: 1rem; 
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.botaoCriar {
+    background-color: #8C4525;
+    color: #F5F5DC;
+    margin-bottom: 1rem; 
+}
+
+button.botaoCriar:hover {
+    background-color: #7A3C1D;
+}
+
+button.botaoPerfil {
+    background-color: #D4B79E;
+    color: #8C4525;
+}
+
+button.botaoPerfil:hover {
+    background-color: #C69C6D;
+}
+
+h1, h2, p, button {
+    padding: 1rem; 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease; /* Transição suave ao abrir/fechar */
+}
+
+.conteudoModal {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 5vh auto;
+    width: 100%;  /* Reduzido para dar uma margem nos lados */
+    max-width: 600px;
+    max-height: 90vh; 
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); 
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 1.5rem; 
+    transition: transform 0.3s ease; /* Animação ao abrir o modal */
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1; /* Tornar visível */
+}
+
+.modal.hide {
+    opacity: 0; /* Tornar invisível ao fechar */
+}
+
+.conteudoModal h2 {
+    font-size: 1.5rem;
+    color: #8C4525;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+label {
+    color: #8C4525;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #5a9;
+    box-shadow: 0 0 0 3px rgba(85, 170, 136, 0.2);
+    outline: none;
+    background-color: #fff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: #8C4525;
+    color: #F5F5DC;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #7A3C1D;
+}
+
+.botaoFechar {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    color: #8C4525;
+    cursor: pointer;
+}
+
+.botaoFechar:hover {
+    color: #7A3C1D;
+}

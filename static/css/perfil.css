@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; 
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #F5F5DC;
+}
+
+header {
+    background-color: #8C4525;
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    padding: 1.25rem;
+}
+
+
+.icone {
+    width: 5rem;         
+    height: auto;
+    vertical-align: middle;
+    margin-right: 0.6rem; 
+}
+
+.botaoVoltar {
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.625rem 1.25rem;
+    background-color: #8C4525;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.botaoVoltar:hover {
+    background-color: #a9542d;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    height: calc(100vh - 3.75rem); 
+}
+
+.left-sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 1.25rem;
+}
+
+.divPerfil {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+}
+
+.fotoPerfil {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.625rem;
+}
+
+.divInfo h2, .divInfo p {
+    margin: 0.3125rem 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.botaoLogout {
+    margin-top: 0.625rem;
+    padding: 0.5rem;
+    background-color: #8C4525;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.botaoLogout:hover {
+    background-color: #a9542d;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    overflow-y: auto;
+    padding-right: 0.625rem;
+}
+
+.resenha {
+    background-color: #fff;
+    border: 0.1rem solid #8c4525;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.resenha-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.resenha-titulo {
+    font-size: 1.2rem;
+    color: #8c4525;
+    margin: 0;
+}
+
+.resenha-nota {
+    background-color: #8c4525;
+    color: #f5f5dc;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.resenha-texto {
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0;
+}
+
+.resenha-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.resenha-genero, .resenha-livro {
+    font-style: italic;
+}
+
