@@ -1,0 +1,154 @@
+
+.container-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: var(--cor-fundo, #F5F5DC); 
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+header{
+    justify-content: center;
+}
+
+.auth-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 0.625rem; 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); 
+    width: 100%;
+    max-width: 400px; 
+    text-align: center;
+}
+
+.auth-box h2 {
+    margin-bottom: 25px;
+    color: var(--cor-principal, #8C4525); 
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    width: calc(100% - 20px); /* Ajuste para padding */
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 0.5rem; 
+    font-size: 1rem;
+    background-color: #f9f9f9; 
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:focus {
+    border-color: #5a9;
+    box-shadow: 0 0 0 3px rgba(85, 170, 136, 0.2);
+    outline: none;
+    background-color: #fff;
+}
+
+.btn-auth {
+    background-color: var(--cor-secundaria, #8C4525);
+    color: var(--cor-clara, #F5F5DC); 
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-auth:hover {
+    background-color: var(--cor-secundaria-hover, #7A3C1D); 
+}
+
+.signup-link {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.signup-link a {
+    color: var(--cor-secundaria, #8C4525); /* Cor do link */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o Modal de Cadastro */
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+    justify-content: center; 
+    align-items: center; 
+    opacity: 0; /* Inicia transparente para a transição */
+}
+
+.modal.show {
+    display: flex; 
+    opacity: 1; /* Torna visível com transição */
+}
+
+.modal-content-auth {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #888;
+    border-radius: 0.625rem; 
+    width: 100%;
+    max-width: 450px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    transform: translateY(-20px); /* Inicia um pouco acima para a animação */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.show .modal-content-auth {
+    transform: translateY(0); /* Desliza para a posição final */
+    opacity: 1;
+}
+
+.close-button-auth {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button-auth:hover,
+.close-button-auth:focus {
+    color: black;
+    text-decoration: none;
+}

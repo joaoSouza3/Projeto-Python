@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    </head>
+<body>
+    <header>
+    
+    </header>
+
+    <main class="container-auth">
+        <div class="auth-box login-container">
+            <h2>Entrar</h2>
+            <form id="loginForm" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn-auth">Entrar</button>
+            </form>
+            <p class="signup-link">Não tem uma conta? <a href="#" id="openSignupModal">Cadastre-se já</a></p>
+        </div>
+    </main>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content-auth">
+            <span class="close-button-auth">&times;</span>
+            <h2>Cadastre-se</h2>
+            <form id="signupForm" action="/register" method="POST">
+                <div class="form-group">
+                    <label for="signupName">Nome:</label>
+                    <input type="text" id="signupName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Senha:</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn-auth">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const signupModal = document.getElementById('signupModal');
+        const openSignupModalBtn = document.getElementById('openSignupModal');
+        const closeButton = document.querySelector('.close-button-auth');
+
+        openSignupModalBtn.onclick = function(e) {
+            e.preventDefault(); // Evita que o link tente navegar para #
+            signupModal.style.display = 'flex';
+            setTimeout(() => {
+                signupModal.classList.add('show');
+            }, 10);
+        }
+
+        closeButton.onclick = function() {
+            signupModal.classList.remove('show');
+            setTimeout(() => {
+                signupModal.style.display = 'none';
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == signupModal) {
+                signupModal.classList.remove('show');
+                setTimeout(() => {
+                    signupModal.style.display = 'none';
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>

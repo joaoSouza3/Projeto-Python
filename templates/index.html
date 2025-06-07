@@ -22,25 +22,18 @@
         </aside>
 
         <section class="feed">
-            <article class="resenha">
-                <div class="resenha-header">
-                    <h2 class="resenha-titulo">Título da Resenha</h2>
-                    <span class="resenha-nota">⭐ 4/5</span>
-                </div>
-                <p class="resenha-genero"><strong>Gênero:</strong> Fantasia</p>
-                <p class="resenha-livro"><strong>Livro:</strong> O Nome do Vento</p>
-                <p class="resenha-conteudo">Esta é uma resenha resumida sobre o livro e minha experiência de leitura...</p>
-            </article>
 
+            {% for resenha in resenhas %}
             <article class="resenha">
                 <div class="resenha-header">
-                    <h2 class="resenha-titulo">Título da Resenha</h2>
-                    <span class="resenha-nota">⭐ 5/5</span>
+                    <h2 class="resenha-titulo"> {{resenha.titulo}}</h2>
+                    <span class="resenha-nota">⭐ {{resenha.nota}}/5</span>
                 </div>
-                <p class="resenha-genero"><strong>Gênero:</strong> Ficção Científica</p>
-                <p class="resenha-livro"><strong>Livro:</strong> 1984</p>
-                <p class="resenha-conteudo">Uma análise sobre a distopia de Orwell...</p>
+                <p class="resenha-genero"><strong>Gênero:</strong> {{resenha.genero}}</p>
+                <p class="resenha-livro"><strong>Livro:</strong> {{resenha.nomeLivro}}</p>
+                <p class="resenha-conteudo"> {{resenha.desc}}</p>
             </article>
+            {% endfor %}
         </section>
 
         <aside class="rightSidebar">
@@ -51,27 +44,29 @@
 
     <!-- Modal estático -->
     <div id="modal" class="modal">
-        <div class="conteudoModal">
-            <span class="botaoFechar" onclick="fecharModal()">&times;</span>
-            <h2>Criar Resenha</h2>
-        
-            <label for="nomeLivro">Nome do Livro:</label>
-            <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite o nome do livro">
-        
-            <label for="genero">Gênero:</label>
-            <input type="text" id="genero" name="genero" placeholder="Digite o gênero">
-        
-            <label for="titulo">Título da Resenha:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Digite o título">
-        
-            <label for="desc">Texto da Resenha:</label>
-            <textarea id="desc" name="desc" rows="4" placeholder="Escreva sua resenha..."></textarea>
-        
-            <label for="nota">Nota (1 a 5):</label>
-            <input type="number" id="nota" name="nota" min="1" max="5" placeholder="Digite a nota">
-        
-            <button onclick="fecharModal()">Salvar (fake)</button>
-        </div>
+        <form method="POST" action="{{ url_for('criarResenha') }}">
+            <div class="conteudoModal">
+                <span class="botaoFechar" onclick="fecharModal()">&times;</span>
+                <h2>Criar Resenha</h2>
+            
+                <label for="nomeLivro">Nome do Livro:</label>
+                <input type="text" id="nomeLivro" name="nomeLivro" required>
+            
+                <label for="genero">Gênero:</label>
+                <input type="text" id="genero" name="genero" required>
+            
+                <label for="titulo">Título da Resenha:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            
+                <label for="desc">Texto da Resenha:</label>
+                <textarea id="desc" name="desc" rows="4" required></textarea>
+            
+                <label for="nota">Nota (1 a 5):</label>
+                <input type="number" id="nota" name="nota" min="1" max="5" step="0.5" required>
+            
+                <button type="submit">Salvar</button>
+            </div>
+        </form>
     </div>
 
     <script>
