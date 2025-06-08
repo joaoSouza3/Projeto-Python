@@ -24,39 +24,24 @@
             <div class="divPerfil">
                 <img src="{{ url_for('static', filename='img/imgPerfil.png') }}" alt="Foto de Perfil" class="fotoPerfil">
                 <div class="divInfo">
-                    <h2>Nome do Usuário</h2>
-                    <p>usuario@email.com</p>
+                    <h2>{{name}}</h2>
+                    <p>{{email}}</p>
                     <button class="botaoLogout">Sair</button>
                 </div>
             </div>
         </aside>
 
+        {% for resenha in resenhas %}
         <section class="feed">
             <article class="resenha">
-                <div class="resenha-cabecalho">
-                    <h2 class="resenha-titulo">Título da Resenha</h2>
-                    <span class="resenha-nota">Nota: 5/5</span>
-                </div>
-                <p class="resenha-texto">Conteúdo da resenha do usuário...</p>
-                <div class="resenha-info">
-                    <span class="resenha-genero">Gênero: Fantasia</span>
-                    <span class="resenha-livro">Livro: O Nome do Vento</span>
-                </div>
-            </article>
-
-            <article class="resenha">
-                <div class="resenha-cabecalho">
-                    <h2 class="resenha-titulo">Outra Resenha</h2>
-                    <span class="resenha-nota">Nota: 4/5</span>
-                </div>
-                <p class="resenha-texto">Mais um conteúdo aqui...</p>
-                <div class="resenha-info">
-                    <span class="resenha-genero">Gênero: Drama</span>
-                    <span class="resenha-livro">Livro: Ensaio sobre a Cegueira</span>
-                </div>
+                <h3>{{ resenha.titulo }}</h3>
+                <p><strong>Livro:</strong> {{ resenha.nomeLivro }}</p>
+                <p><strong>Gênero:</strong> {{ resenha.genero }}</p>
+                <p><strong>Nota:</strong> {{ resenha.nota }}</p>
+                <p>{{ resenha.desc }}</p>
             </article>
         </section>
-
+        {% endfor %}
 
         
     </main>

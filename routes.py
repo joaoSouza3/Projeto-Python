@@ -4,6 +4,17 @@ from flask import render_template, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import render_template, request, redirect, url_for
 from models import db, Resenha
+from flask_login import LoginManager
+from flask_login import login_required, current_user
+from flask_login import login_user
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "cadastro"
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Usuario.query.get(int(user_id))
 
 #ROTAS
 @app.route("/")    
@@ -13,6 +24,7 @@ def homepage():
 
 
 @app.route('/criarResenha', methods=["POST"])
+@login_required
 def criarResenha():
     titulo = request.form.get("titulo")
     nomeLivro = request.form.get("nomeLivro")
@@ -26,7 +38,7 @@ def criarResenha():
         genero= genero,
         desc= desc,
         nota= nota,
-        idUsuario= 1
+        idUsuario= current_user.id
     )
 
     db.session.add(novaResenha)
@@ -35,15 +47,21 @@ def criarResenha():
 
 
 @app.route("/perfil")
+@login_required
 def perfil():
-    return render_template("perfil.html")
+    resenhas_usuario = current_user.resenha
+    return render_template("perfil.html", name=current_user.name, email=current_user.email, resenhas=resenhas_usuario)
 
-@app.route("/cadastro", methods=["POST"])
+@app.route("/cadastro")
 def cadastro():
-    data = request.get_json()
-    name = data.get("name")
-    email = data.get("email")
-    senha = data.get("senha")
+    return render_template("cadastro.html")
+
+@app.route("/cadastrar", methods=["POST"])
+def cadastrar():
+    #data = request.get_json()
+    name = request.form.get("name")
+    email = request.form.get("email")
+    senha = request.form.get("senha")
 
     if Usuario.query.filter_by(email=email).first():
         return jsonify({"erro": "Email já cadastrado"}), 400
@@ -54,17 +72,21 @@ def cadastro():
     db.session.add(novo_usuario)
     db.session.commit()
 
-    return jsonify({"mensagem": "Usuário criado com sucesso"}), 201
+    print(f"Usuário encontrado: {novo_usuario.email}, senha hash no banco: {novo_usuario.senha}")
+    return redirect("/")
+    #return jsonify({"mensagem": "Usuário criado com sucesso"}), 201
 
 @app.route("/login", methods=["POST"])
 def login():
-    data = request.get_json()
-    email = data.get("email")
-    senha = data.get("senha")
+    #data = request.form.get()
+    email = request.form.get("email")
+    senha = request.form.get("senha")
     user = Usuario.query.filter_by(email=email).first()
     if not user or not check_password_hash(user.senha, senha):
         return jsonify({"erro": "Email ou senha inválidos"}), 401
-    return jsonify({"mensagem": "Bem-vindo", "user_id": user.name}), 200
+
+    login_user(user)    
+    return redirect("/perfil")
 
 
 @app.route("/auth")

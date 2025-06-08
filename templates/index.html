@@ -38,10 +38,13 @@
 
         <aside class="rightSidebar">
             <a href="{{ url_for('perfil')}}"><button class="botaoPerfil">Perfil</button></a>
+            {% if current_user.is_authenticated %}
             <button class="botaoCriar" onclick="abrirModal()">Criar Resenha</button>
+            {% endif %}
         </aside>
     </main>
 
+        
     <!-- Modal estático -->
     <div id="modal" class="modal">
         <form method="POST" action="{{ url_for('criarResenha') }}">
@@ -68,7 +71,7 @@
             </div>
         </form>
     </div>
-
+    
     <script>
         const modal = document.getElementById("modal");
 
