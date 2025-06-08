@@ -28,6 +28,8 @@ header {
     padding: 2rem; 
 }
 
+/* Estilo do feed */
+
 .rightSidebar {
     background-color: #F5F5DC; 
     padding: 1rem;
@@ -75,6 +77,16 @@ header {
     margin-bottom: 1.25rem; 
 }
 
+.resenha-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.resenha-nota {
+    order: 2;
+}
+
 button {
     width: 100%;
     padding: 1rem; 
@@ -84,6 +96,8 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+/* Estilo do modal */
 
 button.botaoCriar {
     background-color: #8C4525;
