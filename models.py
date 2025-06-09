@@ -8,6 +8,7 @@ class Usuario(db.Model, UserMixin):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     senha = db.Column(db.String(255), nullable=False)
+    profile_pic = db.Column(db.String(200), nullable=True)
 
     @property
     def id(self):

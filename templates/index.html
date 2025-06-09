@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resenhas Literárias</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -29,8 +30,10 @@
             {% for resenha in resenhas %}
             <article class="resenha">
                 <div class="resenha-header">
+                    <img src="{{ resenha.user_rel.profile_pic }}" alt="Foto do autor" class="foto-autor">
                     <h2 class="resenha-titulo"> {{resenha.titulo}}</h2>
                     <span class="resenha-nota">⭐ {{resenha.nota}}/5</span>
+                    <p>{{ resenha.user_rel.name }}</p>
                 </div>
                 <p class="resenha-genero"><strong>Gênero:</strong> {{resenha.genero}}</p>
                 <p class="resenha-livro"><strong>Livro:</strong> {{resenha.nomeLivro}}</p>

@@ -1,5 +1,6 @@
 body {
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
+    font-family: 'Inter', sans-serif;
     margin: 0;
     background-color: #F5F5DC; 
 }
@@ -11,6 +12,15 @@ header {
     justify-content: flex-start;
     padding: 1.25rem; 
 }
+
+.foto-autor {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+}
+
 
 .icone {
     width: 5rem;         

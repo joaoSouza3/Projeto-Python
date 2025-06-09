@@ -7,6 +7,7 @@ from models import db, Resenha
 from flask_login import LoginManager
 from flask_login import login_required, current_user
 from flask_login import login_user, logout_user
+import cloudinary.uploader
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "cadastro"
@@ -142,3 +143,22 @@ def logout():
 @app.route("/auth")
 def auth():
     return render_template("cadastro.html")
+
+
+@app.route('/upload-profile-pic', methods=['POST'])
+@login_required
+def upload_profile_pic():
+    file = request.files['profile_pic']
+    
+    if file:
+        result = cloudinary.uploader.upload(file)
+        url = result['secure_url']
+
+        # Atualiza usuário
+        user = Usuario.query.get(current_user.id)
+        user.profile_pic = url
+        db.session.commit()
+
+        return redirect(url_for('perfil'))
+
+    return "No file uploaded", 400

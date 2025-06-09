@@ -20,6 +20,51 @@ header {
     justify-content: flex-start;
     padding: 1.25rem;
 }
+.hiddenInput {
+    display: none;
+}
+
+.customUpload {
+    background-color: #eee;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+
+.inputFile {
+    display: block;
+    margin: 10px 0;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.inputFile:hover {
+    border-color: #007bff;
+}
+
+.botaoUpload {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.botaoUpload:hover {
+    background-color: #45a049;
+}
 
 
 .icone {
@@ -79,6 +124,7 @@ header {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 0.625rem;
+    border-radius: 50%;
 }
 
 .divInfo h2, .divInfo p {
