@@ -125,7 +125,7 @@ def login():
     senha = request.form.get("senha")
     user = Usuario.query.filter_by(email=email).first()
     if not user or not check_password_hash(user.senha, senha):
-        return jsonify({"erro": "Email ou senha inválidos"}), 401
+        return redirect("/cadastro")
 
     login_user(user)    
     return redirect("/perfil")
@@ -161,4 +161,4 @@ def upload_profile_pic():
 
         return redirect(url_for('perfil'))
 
-    return "No file uploaded", 400
+    return redirect(url_for('perfil'))
