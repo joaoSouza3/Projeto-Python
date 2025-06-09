@@ -11,14 +11,17 @@
         <h1>
 
             <img src="{{ url_for('static', filename='img/imgLivro.png') }}" alt="Ícone de Livro" class="icone">
-            Resenhas Literárias
+            ResenhasBlog
         </h1>
     </header>
 
     <main class="container">
         <aside class="leftSidebar">
-            <h2>Como fazer uma resenha</h2>
-            <p>Aqui você pode colocar um guia ou instruções sobre como escrever uma boa resenha de livro.</p>
+            <h2>Como fazer uma resenha?</h2>
+            <p> Para fazer uma resenha, comece apresentando um título, autor e uma breve descrição da história, sem spoiler!<br><br>
+                Depois, diga o que achou do enredo, dos personagens e da escrita.<br><br> Comente os pontos positivos e negativos,
+                sempre justificando sua opnião. No final, diga para quem recomenda o livro e sua avaliação geral.
+            </p>
         </aside>
 
         <section class="feed">
@@ -45,7 +48,7 @@
     </main>
 
         
-    <!-- Modal estático -->
+    <!-- Modal de Criação -->
     <div id="modal" class="modal">
         <form method="POST" action="{{ url_for('criarResenha') }}">
             <div class="conteudoModal">

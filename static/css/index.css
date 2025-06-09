@@ -139,7 +139,7 @@ h1, h2, p, button {
     background-color: #fff;
     padding: 2rem;
     margin: 5vh auto;
-    width: 100%;  /* Reduzido para dar uma margem nos lados */
+    width: 100%; 
     max-width: 600px;
     max-height: 90vh; 
     border-radius: 0.625rem;
@@ -192,8 +192,9 @@ input:focus, textarea:focus {
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
     min-height: 100px;
+
 }
 
 button {
